@@ -9,8 +9,13 @@
 
 	
     <!-- Define your beans here -->
+    <bean id="dailyTip"
+     class="com.hasnat.springdemo.DailyTip"></bean>
+     
     <bean id="trackCoach" 
-    class="com.hasnat.springdemo.TrackCoach"></bean>
+    class="com.hasnat.springdemo.TrackCoach">
+    <constructor-arg ref="dailyTip"/></bean>
+    
     
 </beans>
 
