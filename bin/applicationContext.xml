@@ -6,6 +6,8 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <context:property-placeholder location="classpath:details.properties"/>
 
 	
     <!-- Define your beans here -->
@@ -13,8 +15,13 @@
      class="com.hasnat.springdemo.DailyTip"></bean>
      
     <bean id="trackCoach" 
-    class="com.hasnat.springdemo.TrackCoach">
-    <constructor-arg ref="dailyTip"/></bean>
+    class="com.hasnat.springdemo.TrackCoach" 
+    init-method="beanInit"
+    destroy-method="beanEnd">
+    <property name="tip" ref="dailyTip"/>
+    <property name="name" value="${coach}"/>
+    <property name="rollno" value="${team}"/>
+    </bean>
     
     
 </beans>

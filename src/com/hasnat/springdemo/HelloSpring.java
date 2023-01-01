@@ -9,10 +9,10 @@ public class HelloSpring {
 		ClassPathXmlApplicationContext context = new 
 				ClassPathXmlApplicationContext("applicationContext.xml");
 		
-		Coach theCoach = context.getBean("trackCoach", Coach.class);
+		TrackCoach theCoach = context.getBean("trackCoach", TrackCoach.class);
 		
-		System.out.println(theCoach.getDailyWorkout());
-		System.out.println(theCoach.tipOfTheDay());
+		System.out.println(theCoach.getName());
+		System.out.println(theCoach.getRollno());
 		
 		context.close();
 	}
